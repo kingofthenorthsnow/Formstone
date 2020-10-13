@@ -20,7 +20,31 @@
 }
 
 & when not (@fs-grid-mixin-only) {
+
   .@{fs-grid-class-container} {
+
+    --fs-grid-gutter: @fs-grid-gutter;
+    --fs-grid-sm-edge: @fs-grid-sm-edge;
+
+    --fs-grid-width-xs: @fs-grid-width-xs;
+    --fs-grid-width-sm: @fs-grid-width-sm;
+    --fs-grid-width-md: @fs-grid-width-md;
+    --fs-grid-width-lg: @fs-grid-width-lg;
+    --fs-grid-width-xl: @fs-grid-width-xl;
+
+    // --fs-grid-max-xs: abs(@fs-grid-width-break-xs - 1px);
+    // --fs-grid-max-sm: abs(@fs-grid-width-break-sm - 1px);
+    // --fs-grid-max-md: abs(@fs-grid-width-break-md - 1px);
+    // --fs-grid-max-lg: abs(@fs-grid-width-break-lg - 1px);
+    // --fs-grid-max-xl: abs(@fs-grid-width-break-xl - 1px);
+
+    // --fs-grid-min-xs: @fs-grid-width-break-xs;
+    // --fs-grid-min-sm: @fs-grid-width-break-sm;
+    // --fs-grid-min-md: @fs-grid-width-break-md;
+    // --fs-grid-min-lg: @fs-grid-width-break-lg;
+    // --fs-grid-min-xl: @fs-grid-width-break-xl;
+
+    //
 
     .@{fs-grid-class-row} {
 
@@ -47,6 +71,11 @@
       // !Contained Cells
       [class*="@{fs-grid-class-cell}"][class*="@{fs-grid-class-contained}"] {
         &:extend(.fs_grid_cell_contained);
+      }
+
+      // !Pushed Cells
+      [class*="@{fs-grid-class-cell}"][class*="-push-"] {
+        .fs_grid_column_pushed_base();
       }
 
       // // !First Cells
